@@ -1,0 +1,67 @@
+:root {
+    --themeMainColor: rgb(0, 6, 90);
+    --backgroundColor: rgba(255, 255, 255, 0.253);
+    --textColor: rgb(204, 204, 204);
+}
+
+.navbar {
+    background-color: var(--themeMainColor);
+}
+
+.navbar a {
+    color: var(--textColor);
+}
+
+.navbar span {
+    margin-right: 5px;
+}
+
+.disabled {
+    text-shadow: var(--backgroundColor) 0px -1px;
+    border-radius: 10px;
+}
+
+.navbar img {
+    height: 4vh;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+
+.latest-news img {
+    height: 70vh;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: var(--backgroundColor);
+}
+
+.calendar {
+    height: 40vh;
+    width: 100%;
+    margin: 2vh 0;
+}
+
+.calendar-list {
+    margin: 2vh 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--themeMainColor);
+}
+
+.midias i {
+    width: 5vw;
+    margin: 5px;
+}
+
+.news {
+    margin: 2vh 0;
+}
+
+.footer a:link,  .footer a:visited,  .footer p{
+    color: rgba(255, 255, 255, 0.534);
+}
