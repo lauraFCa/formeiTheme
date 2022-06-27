@@ -4,8 +4,32 @@
     --textColor: rgb(204, 204, 204);
 }
 
+#pagina {
+    min-height: 70vh;
+}
+
 .navbar {
     background-color: var(--themeMainColor);
+    max-width: 100%;
+}
+
+.menu-bar {
+    background-color: var(--themeMainColor);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-bar .col-md-2 {
+    max-height: 10vh;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-bar .col-md-2 img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .navbar a {
@@ -27,6 +51,9 @@
     border-radius: 50%;
 }
 
+/* #carouselExampleDark{
+    min-height: 10vh;
+} */
 
 .latest-news img {
     height: 70vh;

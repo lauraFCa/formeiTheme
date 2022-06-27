@@ -13,80 +13,36 @@
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <?php $destaquePosts = new WP_Query(array( 'tag' => 'destaque'));?>
-            <?php
-            while ( $destaquePosts->have_posts() ) : $destaquePosts->the_post();
-                if ( $gallery = get_post_gallery( get_the_ID(), false ) ) :
-                    // Loop through all the image and output them one by one.
-                    foreach ( $gallery['src'] AS $src ) { ?>
-            <div class="carousel-item" data-bs-interval="10000">
-                <img src="<?php echo $src; ?>" alt="Gallery image" />
-            </div>
-            <?php
-                    }
-                endif;
-            endwhile;
-            wp_reset_query();
-            ?>
-            <!-- pegar 3 primeiros destaques apenas -->
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="https://www.cursosapientia.com.br/admimg/siteBlog/cacd-diplomata-itamaraty-diplomacia-o-que-voce-precisa-saber-antes-de-comecar-a-estudar-para-o-cacd.png"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="https://adaptive.com.br/wp-content/uploads/estrategia-a-chave-para-o-sucesso-do-seu-negocio-e-tema-de-palestra-5a946b6a8f048.jpg"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
+            <?php $recent_args = array(
+                            "posts_per_page" => 3,
+                            "orderby"        => "date",
+                            "order"          => "DESC",
+                            'tag' => 'destaque'
+                        );
+            $destaquePosts = new WP_Query($recent_args);
+            while ( $destaquePosts->have_posts() ) : $destaquePosts->the_post(); ?>
             <div class="carousel-item">
-                <img src="https://folhadirigida.com.br/blog/wp-content/uploads/2021/08/thumb_1_servidoriniciante.png"
-                    class="d-block w-100" alt="...">
+                <?php if(has_post_thumbnail()) : ?>
+                <img src="<?php the_post_thumbnail_url()?>" class="d-block w-100" alt="Gallery image" />
+                <?php else: ?>
+                <img src="<?php bloginfo('template_url');?>/img/basicBG.jpg" class="d-block w-100"
+                    alt="Gallery image" />
+                <?php endif; ?>
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                    <h5><?php the_title() ?></h5>
+                    <p><?php the_excerpt() ?></p>
                 </div>
             </div>
+            <?php endwhile; wp_reset_query();?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Próximo</span>
         </button>
-    </div>
-</div>
-
-<!-- exemplo -->
-<div class="container">
-    <div class="row">
-        <div class="patrocinadores text-center text-uppercase">
-            <?php $patrocinadores = new WP_Query(array( 'tag' => 'patrocinadores'));?>
-            <div class="row">
-                <?php
-            while ( $patrocinadores->have_posts() ) : $patrocinadores->the_post();
-                if ( $gallery = get_post_gallery( get_the_ID(), false ) ) :
-                    // Loop through all the image and output them one by one.
-                    foreach ( $gallery['src'] AS $src ) { ?>
-                <div class="col-md-4 imagem-galeria">
-                    <img src="<?php echo $src; ?>" alt="Gallery image" />
-                </div>
-                <?php
-                    }
-                endif;
-            endwhile;
-            wp_reset_query();
-            ?>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -114,11 +70,13 @@
                         </div>
                     </div>
                 </div>
-                <?php endwhile; ?>
+                <?php endwhile; 
+            wp_reset_query();
+            ?>
             </div>
             <div class="row text-center">
-            <div class="paginas">
-            <?php 
+                <div class="paginas">
+                    <?php 
                     $big = 999999999; // need an unlikely integer
                     
                     echo paginate_links( array(
@@ -132,8 +90,8 @@
                     ) );
                     
                 ?>
+                </div>
             </div>
-        </div>
         </div>
 
         <div class="col-sm-4">
@@ -146,10 +104,25 @@
                         Visitas e Palestras
                     </div>
                     <ul class="list-group list-group-flush">
+                        <?php 
+                        $recent_args = array(
+                            "posts_per_page" => 5,
+                            "orderby"        => "date",
+                            "order"          => "DESC",
+                            'tag' => 'visita'
+                        );
+                        $visitas = new WP_Query($recent_args);
+                    while ( $visitas->have_posts() ) : $visitas->the_post();
+                    ?>
                         <li class="list-group-item">
-                            <h5 class="card-title">Colégio XXXX</h5>
-                            <p class="card-text">10/07 - 15:00</p>
+                            <h5 class="card-title">
+                                <a href="<?php the_permalink() ?>" class="text-reset"><?php the_title() ?></a>
+                            </h5>
+                            <p class="card-text"><?php the_excerpt() ?></p>
                         </li>
+                        <?php endwhile;
+            wp_reset_query();
+            ?>
                         <li class="list-group-item">
                             <h5 class="card-title">Colégio XXXX</h5>
                             <p class="card-text">10/07 - 15:00</p>
