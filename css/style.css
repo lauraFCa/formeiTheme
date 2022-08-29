@@ -23,12 +23,14 @@
     max-height: 10vh;
     margin: 0;
     padding: .5rem;
+    text-align: center;
 }
 
 .menu-bar .col-md-2 img {
-    object-fit: cover;
+    object-fit: contain;
     height: 100%;
     width: 100%;
+    background-color: #fff;
 }
 
 .navbar a {
@@ -117,3 +119,13 @@ iframe#eventsList #document body {
     color: blue;
 }
 
+.noticia .imagem img {
+    width: 100%;
+    height: auto;
+}
+
+#pagina .noticia {
+    border: solid .5px rgba(0, 0, 0, 0.5);
+    padding: .8em;
+    margin: .5em;
+}

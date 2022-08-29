@@ -52,6 +52,47 @@
     </div>
 </div>
 
+<!-- TESTE DE CARROSSEL  -->
+
+<?php 
+$items = new WP_Query(array(
+'post_type' => 'home-slider',
+'posts_per_page' => 10,
+'meta_key' => '_thumbnail_id'
+));
+$count = $items->found_posts;
+?>
+<div class="featured-carousel">
+    <div class="carousel-shadow">
+        <div id="carousel-home-featured" class="carousel-fade slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-home-featured" data-slide-to="0" class="active"></li>
+                <?php for($num = 1; $num < $count; $num++){ ?>
+                <li data-target="#carousel-home-featured" data-slide-to="<?php echo $num; ?>"></li>
+                <?php } ?>
+            </ol>
+            <div class="carousel-inner">
+                <?php 
+        $ctr = 0;
+        while ( $items->have_posts() ) :
+          $items->the_post();
+          $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+          $custom = get_post_custom($post->ID);
+          $link = $custom["more-link"][0];
+          $class = $ctr == 0 ? ' active' : '';
+        ?>
+                <div class="item<?php echo $class; ?>" id="<? the_ID(); ?>"> <a href="<?php echo $link; ?>">
+                        <?php echo get_the_post_thumbnail($post->ID, 'full', array('class'=>"img-responsive"));?> </a>
+                </div>
+                <?php $ctr++; 
+        endwhile;  ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FIM DO TESTE -->
 
 <!-- POSTS / CALENDARIO -->
 <?php $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
@@ -134,6 +175,7 @@
                         </li>
                         <?php endwhile; wp_reset_query(); ?>
                     </ul>
+                    <br />
                 </div>
             </div>
         </div>
