@@ -15,12 +15,10 @@
 
 </head>
 
-
 <body>
     <div class="menu-bar row">
         <div class="col-md-2">
-            <?php
-          
+          <?php
           $custom_logo_id = get_theme_mod( 'custom_logo' );
           $logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 
@@ -30,7 +28,6 @@
             echo '<h1>' . get_bloginfo('name') . '</h1>';
             echo '<p class="lead">' . get_bloginfo('description') . '</p>';
           }
-        
         ?>
         </div>
         <nav class="col-md-10 navbar navbar-expand-lg navbar-dark ps-2" role="navigation">

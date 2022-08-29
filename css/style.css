@@ -17,13 +17,12 @@
     background-color: var(--themeMainColor);
     width: 100%;
     margin: 0;
-    padding: 0;
 }
 
 .menu-bar .col-md-2 {
     max-height: 10vh;
     margin: 0;
-    padding: 0;
+    padding: .5rem;
 }
 
 .menu-bar .col-md-2 img {
@@ -64,13 +63,9 @@
     background-color: var(--backgroundColor);
 }
 
-.calendar {
+.calendar iframe, .calendar-list iframe{
     height: 40vh;
     width: 100%;
-    margin: 2vh 0;
-}
-
-.calendar-list {
     margin: 2vh 0;
 }
 
@@ -92,3 +87,33 @@
 .footer a:link,  .footer a:visited,  .footer p{
     color: rgba(255, 255, 255, 0.534);
 }
+
+.agenda .date-label {
+    background: transparent;
+}
+
+#todayButton1 {
+    display: none;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: rgb(51, 51, 51);
+}
+
+.carousel-item img{
+    object-fit: cover;
+}
+
+.paginas {
+    font-size: large;
+    padding: .5em 0 .8em;
+}
+
+.paginas a, .paginas span{
+    padding: .2em;
+}
+iframe#eventsList #document body {
+    overflow: hidden;
+    color: blue;
+}
+
