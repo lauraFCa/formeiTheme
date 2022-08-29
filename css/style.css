@@ -52,17 +52,13 @@
     border-radius: 50%;
 }
 
-/* #carouselExampleDark{
-    min-height: 10vh;
-} */
-
 .latest-news img {
     height: 70vh;
     object-fit: cover;
 }
 
 .carousel-caption {
-    background-color: var(--backgroundColor);
+    background-color: rgba(0,0,0,.5);
 }
 
 .calendar iframe, .calendar-list iframe{

@@ -15,27 +15,27 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://i.pinimg.com/originals/f8/e3/95/f8e395b6785428be9450d570bf48bf09.png"
+                <img src="https://m.media-amazon.com/images/I/81gEM-CV-cL._SL1500_.jpg"
                     class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5>Se divertir é parte do processo</h5>
+                    <p>Fala pro cliente que a compilação final do programa otimizou a renderização da execução parelela de funções em multi-threads.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://wallpaperaccess.com/full/627165.jpg" class="d-block w-100" alt="...">
+                <img src="https://www.itl.cat/pngfile/big/299-2991476_school-books-on-desk-education-concept-publication-1080p.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5>Aprendizado e Conhecimento</h5>
+                    <p>A nível organizacional, a mobilidade dos capitais internacionais facilita a criação do impacto na agilidade decisória.</p>
                 </div>
 
             </div>
             <div class="carousel-item">
-                <img src="https://www.pixelstalk.net/wp-content/uploads/images2/Free-Download-Computer-Wallpaper-HD-for-Desktop.jpg"
+                <img src="https://c4.wallpaperflare.com/wallpaper/352/123/746/technology-progress-media-innovation-wallpaper-preview.jpg"
                     class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                    <h5>Educação leva a inovação</h5>
+                    <p>O consenso sobre a necessidade de qualificação aponta para a melhoria do levantamento das variáveis envolvidas.</p>
                 </div>
             </div>
         </div>
@@ -175,8 +175,8 @@ $count = $items->found_posts;
                         </li>
                         <?php endwhile; wp_reset_query(); ?>
                     </ul>
-                    <br />
                 </div>
+                <br />
             </div>
         </div>
     </div>
