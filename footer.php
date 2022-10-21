@@ -3,8 +3,8 @@
     <div class="footer">
         <div class="midias">
             <a href="https://www.instagram.com/formei22/" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/formei-uniacademia-420662240/" target="_blank"><i class="bi bi-linkedin"></i></a>
-            <a href="" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/formei22/" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/formei22" target="_blank"><i class="bi bi-facebook"></i></a>
         </div>
         <p>Formei®</p>
     </div>
