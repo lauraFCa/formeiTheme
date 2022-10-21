@@ -2,57 +2,6 @@
 
 </div>
 
-<!-- CARROSSEL  // ta dando ruim qd integra com wordpress  -->
-<!-- <div class="latest-news">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://m.media-amazon.com/images/I/81gEM-CV-cL._SL1500_.jpg"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Se divertir é parte do processo</h5>
-                    <p>Fala pro cliente que a compilação final do programa otimizou a renderização da execução parelela de funções em multi-threads.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://www.itl.cat/pngfile/big/299-2991476_school-books-on-desk-education-concept-publication-1080p.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Aprendizado e Conhecimento</h5>
-                    <p>A nível organizacional, a mobilidade dos capitais internacionais facilita a criação do impacto na agilidade decisória.</p>
-                </div>
-
-            </div>
-            <div class="carousel-item">
-                <img src="https://c4.wallpaperflare.com/wallpaper/352/123/746/technology-progress-media-innovation-wallpaper-preview.jpg"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Educação leva a inovação</h5>
-                    <p>O consenso sobre a necessidade de qualificação aponta para a melhoria do levantamento das variáveis envolvidas.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div> -->
-
-<!-- TESTE DE CARROSSEL  -->
 <section>
 
     <?php $query = new WP_Query(array( 'tag'=> 'destaque', 'posts_per_page' => 3)); 
@@ -76,23 +25,35 @@
                 <div class="carousel-item active">
                     <img src="<?php echo(get_the_post_thumbnail_url( $firstpost )) ?>" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5><?php echo(get_the_title( $firstpost )) ?></h5>
+                        <h5>
+                            <a href="<?php echo(get_the_permalink($firstpost)) ?>" style="color: inherit;">
+                                <?php echo(get_the_title( $firstpost )) ?>
+                            </a>
+                        </h5>
                         <p> <?php echo(get_the_excerpt($firstpost)) ?> </p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="<?php echo(get_the_post_thumbnail_url($secondPost)) ?>" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5><?php echo(get_the_title( $secondPost )) ?></h5>
-                        <p><?php echo(get_the_title( $secondPost )) ?></p>
+                        <h5>
+                            <a href="<?php echo(get_the_permalink($secondPost)) ?>" style="color: inherit;">
+                                <?php echo(get_the_title( $secondPost )) ?>
+                            </a>
+                        </h5>
+                        <p><?php echo(get_the_excerpt( $secondPost )) ?></p>
                     </div>
 
                 </div>
                 <div class="carousel-item">
                     <img src="<?php echo(get_the_post_thumbnail_url($thirdPost)) ?>" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5><?php echo(get_the_title( $thirdPost )) ?></h5>
-                        <p><?php echo(get_the_title( $thirdPost )) ?></p>
+                        <h5>
+                            <a href="<?php echo(get_the_permalink($thirdPost)) ?>" style="color: inherit;">
+                                <?php echo(get_the_title( $thirdPost )) ?>
+                            </a>
+                        </h5>
+                        <p><?php echo(get_the_excerpt( $thirdPost )) ?></p>
                     </div>
                 </div>
             </div>
@@ -108,9 +69,8 @@
             </button>
         </div>
     </div>
-
+    <?php wp_reset_query(); ?>
 </section>
-<!-- FIM DO TESTE -->
 
 <!-- POSTS / CALENDARIO -->
 <?php $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;

@@ -6,7 +6,7 @@
 
 - [X] Barra de menu
 - [X] Home page
-- [ ] Carrossel com posts de destaque
+- [X] Carrossel com posts de destaque
 - [X] Página de um post (individual)
 - [X] Página com lista de categorias
 - [X] Página com lista de tags

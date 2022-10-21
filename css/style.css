@@ -8,6 +8,11 @@
     min-height: 70vh;
 }
 
+#pagina img {
+	max-width: 100%;
+    height: auto;
+}
+
 .navbar {
     background-color: var(--themeMainColor);
     max-width: 100%;
