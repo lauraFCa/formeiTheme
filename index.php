@@ -3,7 +3,7 @@
 </div>
 
 <!-- CARROSSEL  // ta dando ruim qd integra com wordpress  -->
-<div class="latest-news">
+<!-- <div class="latest-news">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -50,48 +50,66 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
+</div> -->
 
 <!-- TESTE DE CARROSSEL  -->
+<section>
 
-<?php 
-$items = new WP_Query(array(
-'post_type' => 'home-slider',
-'posts_per_page' => 10,
-'meta_key' => '_thumbnail_id'
-));
-$count = $items->found_posts;
-?>
-<div class="featured-carousel">
-    <div class="carousel-shadow">
-        <div id="carousel-home-featured" class="carousel-fade slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-home-featured" data-slide-to="0" class="active"></li>
-                <?php for($num = 1; $num < $count; $num++){ ?>
-                <li data-target="#carousel-home-featured" data-slide-to="<?php echo $num; ?>"></li>
-                <?php } ?>
-            </ol>
-            <div class="carousel-inner">
-                <?php 
-        $ctr = 0;
-        while ( $items->have_posts() ) :
-          $items->the_post();
-          $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-          $custom = get_post_custom($post->ID);
-          $link = $custom["more-link"][0];
-          $class = $ctr == 0 ? ' active' : '';
-        ?>
-                <div class="item<?php echo $class; ?>" id="<? the_ID(); ?>"> <a href="<?php echo $link; ?>">
-                        <?php echo get_the_post_thumbnail($post->ID, 'full', array('class'=>"img-responsive"));?> </a>
-                </div>
-                <?php $ctr++; 
-        endwhile;  ?>
+    <?php $query = new WP_Query(array( 'tag'=> 'destaque', 'posts_per_page' => 3)); 
+    $posts = $query -> get_posts();
+    $firstpost=$posts[0];
+    $secondPost=$posts[1];
+    $thirdPost=$posts[2];
+    ?>
 
+    <div class="latest-news">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="<?php echo(get_the_post_thumbnail_url( $firstpost )) ?>" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?php echo(get_the_title( $firstpost )) ?></h5>
+                        <p> <?php echo(get_the_excerpt($firstpost)) ?> </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="<?php echo(get_the_post_thumbnail_url($secondPost)) ?>" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?php echo(get_the_title( $secondPost )) ?></h5>
+                        <p><?php echo(get_the_title( $secondPost )) ?></p>
+                    </div>
+
+                </div>
+                <div class="carousel-item">
+                    <img src="<?php echo(get_the_post_thumbnail_url($thirdPost)) ?>" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><?php echo(get_the_title( $thirdPost )) ?></h5>
+                        <p><?php echo(get_the_title( $thirdPost )) ?></p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
-</div>
 
+</section>
 <!-- FIM DO TESTE -->
 
 <!-- POSTS / CALENDARIO -->
