@@ -1,18 +1,49 @@
+/* #region GENERAL CSS */
 :root {
     --themeMainColor: rgb(0, 6, 90);
     --backgroundColor: rgba(255, 255, 255, 0.253);
     --textColor: rgb(204, 204, 204);
 }
 
-#pagina {
-    min-height: 70vh;
+img {
+    max-width: 100%;
 }
 
-#pagina img {
-	max-width: 100%;
-    height: auto;
+.phone-page, .logo-phone {
+    display: none;
 }
 
+/* #endregion */
+
+/* #region FOOTER */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--themeMainColor);
+}
+
+.midias i {
+    width: 5vw;
+    margin: 5px;
+}
+
+.footer a:link, .footer a:visited, .footer p {
+    color: rgba(255, 255, 255, 0.534);
+}
+
+.menu-midias-sociais-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-midias-sociais-container ul li {
+    width: auto;
+}
+
+/* #endregion */
+
+/* #region TOP BAR */
 .navbar {
     background-color: var(--themeMainColor);
     max-width: 100%;
@@ -22,20 +53,28 @@
     background-color: var(--themeMainColor);
     width: 100%;
     margin: 0;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
 }
 
-.menu-bar .col-md-2 {
-    max-height: 10vh;
-    margin: 0;
-    padding: .5rem;
-    text-align: center;
+.logo-pc {
+    display: flex;
+    max-height: 100%;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-content: center;
+    padding: 2px;
 }
 
-.menu-bar .col-md-2 img {
+.menu-bar img {
     object-fit: contain;
     height: 100%;
     width: 100%;
-    background-color: #fff;
+}
+
+#menu-menu li {
+    padding: 2px;
 }
 
 .navbar a {
@@ -56,40 +95,36 @@
     margin-right: 5px;
     border-radius: 50%;
 }
+/* #endregion */
 
-.latest-news img {
-    height: 70vh;
-    object-fit: cover;
-}
-
-.carousel-caption {
-    background-color: rgba(0,0,0,.5);
-}
-
-.calendar iframe, .calendar-list iframe{
-    height: 40vh;
-    width: 100%;
-    margin: 2vh 0;
-}
-
-.footer {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--themeMainColor);
-}
-
-.midias i {
-    width: 5vw;
-    margin: 5px;
-}
+/* #region HOME PAGE */
 
 .news {
     margin: 2vh 0;
 }
 
-.footer a:link,  .footer a:visited,  .footer p{
-    color: rgba(255, 255, 255, 0.534);
+.latest-news img { /*carrossel*/
+    height: 45vh;
+    object-fit: cover;
 }
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.calendar iframe, .calendar-list iframe {
+    height: 60vh;
+    width: 100%;
+    margin: 2vh 0;
+}
+
+/* #region Iframe */
+
+.iframe-body{
+    background-color: red;
+}
+
+/* #endregion */
 
 .agenda .date-label {
     background: transparent;
@@ -99,34 +134,91 @@
     display: none;
 }
 
+.carousel-control-next-icon {
+    background-image: url('../img/angles-right.svg');
+}
+
+.carousel-control-prev-icon {
+    background-image: url('../img/angles-left.svg');
+}
+
 .carousel-indicators [data-bs-target] {
     background-color: rgb(51, 51, 51);
 }
 
-.carousel-item img{
-    object-fit: cover;
-}
+
+/* #endregion */
 
 .paginas {
     font-size: large;
     padding: .5em 0 .8em;
 }
 
-.paginas a, .paginas span{
+.paginas a, .paginas span {
     padding: .2em;
 }
+
 iframe#eventsList #document body {
     overflow: hidden;
     color: blue;
 }
 
-.noticia .imagem img {
+/* #region CATEGORY PAGE */
+.category-page .item {
+    border: solid .2px rgba(0, 0, 0, 0.2);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
     width: 100%;
-    height: auto;
+    height: 100%;
+    padding: 5px;
 }
 
-#pagina .noticia {
-    border: solid .5px rgba(0, 0, 0, 0.5);
-    padding: .8em;
-    margin: .5em;
+.category-page img{
+    height: 25vh;
+    object-fit: cover;
+}
+
+.paginacao {
+    text-align: center;
+    margin: 2px;
+    font-style: italic;
+    word-spacing: .5em;
+}
+
+/* #endregion */
+
+
+
+@media screen and (max-width: 450px) {
+    .large-page {
+        display: none;
+    }
+
+    .phone-page {
+        display: block;
+        margin-top: .5em;
+    }
+
+    .logo-pc {
+        display: none;
+    }
+
+    .navbar {
+        max-width: 80%;
+        max-height: 100%;
+    }
+
+    .logo-phone {
+        display: block;
+        width: 20%;
+        max-height: 100%;
+    }
+
+    .menu-bar {
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+    }
+
 }

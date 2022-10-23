@@ -1,4 +1,3 @@
-
 <footer>
     <div class="footer">
         <div class="midias">
@@ -9,17 +8,16 @@
         <p>Formei®</p>
     </div>
 
-    
+
 </footer>
 
 <?php wp_footer(); ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="<?php bloginfo('template_url');?>/js/vendor/jquery-1.11.2.min.js"><\/script>')
-</script>
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="<?php bloginfo('template_url') ?>/js/jquery.js"></script>
+    <script src="<?php bloginfo('template_url') ?>/js/popper.js"></script>
+    <script src="<?php bloginfo('template_url') ?>/js/bootstrap.min.js"></script>
 
 </body>
 

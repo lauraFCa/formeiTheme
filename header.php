@@ -16,40 +16,57 @@
 </head>
 
 <body>
-    <div class="menu-bar row">
-        <div class="col-md-2">
-          <?php
+    <div class="menu-bar">
+        <div class="logo-pc">
+            <?php
           $custom_logo_id = get_theme_mod( 'custom_logo' );
           $logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 
           if ( has_custom_logo() ) {
-            echo '<img src="' . esc_url( $logo[0] ) . '" "">';
+            echo '<a href="' . get_bloginfo('url') . '"><img src="' . esc_url( $logo[0] ) . '" ""></a>';
           } else {
             echo '<h1>' . get_bloginfo('name') . '</h1>';
             echo '<p class="lead">' . get_bloginfo('description') . '</p>';
           }
         ?>
         </div>
-        <nav class="col-md-10 navbar navbar-expand-lg navbar-dark ps-2" role="navigation">
+
+        <nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
             <div class="container-flex">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu"
+                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <?php
-                  wp_nav_menu( array(
-                    'theme_location'    => 'principal',
-                    'depth'             => 2,
-                    'container'         => 'div',
-                    'container_class'   => 'collapse navbar-collapse',
-                    'container_id'      => 'bs-example-navbar-collapse-1',
-                    'menu_class'        => 'nav navbar-nav',
-                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                    'walker'            => new WP_Bootstrap_Navwalker(),
-                  ) );
-                  ?>
+
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <?php
+            wp_nav_menu(array(
+                'theme_location' => 'principal',
+                'container' => false,
+                'menu_class' => '',
+                'fallback_cb' => '__return_false',
+                'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 %2$s">%3$s</ul>',
+                'depth' => 2,
+                'walker' => new bootstrap_5_wp_nav_menu_walker()
+            ));
+            ?>
+                </div>
             </div>
-    </div>
+
+        </nav>
+
+
+        <div class="logo-phone">
+            <?php
+          $custom_logo_id = get_theme_mod( 'custom_logo' );
+          $logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+
+          if ( has_custom_logo() ) {
+            echo '<a href="' . get_bloginfo('url') . '"><img src="' . esc_url( $logo[0] ) . '" ""></a>';
+          } else {
+            echo '<h1>' . get_bloginfo('name') . '</h1>';
+            echo '<p class="lead">' . get_bloginfo('description') . '</p>';
+          }
+        ?>
+        </div>
     </div>
