@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Category
+Template Name: All Posts
 */
 ?>
 
@@ -8,7 +8,7 @@ Template Name: Category
 <?php $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
     $posts = new WP_Query(array('posts_per_page' => 6, 'paged' => $paged,));
     ?>
-<div class="container-fluid">
+<div class="container">
     <div class="row category-page">
         <h2> Publicações </h2>
         <?php while($posts->have_posts()) : $posts->the_post(); ?>

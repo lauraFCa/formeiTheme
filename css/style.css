@@ -152,6 +152,10 @@ img {
 
 /* #endregion */
 
+#pagina img{
+    height: auto;
+}
+
 .paginas {
     font-size: large;
     padding: .5em 0 .8em;

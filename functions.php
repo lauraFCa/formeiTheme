@@ -1,6 +1,5 @@
 <?php
 
-
 #region MENU
 // Registra o Custom Navigation Walker
 require_once get_template_directory() .'/class-wp-bootstrap-navwalker.php';

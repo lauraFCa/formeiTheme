@@ -16,7 +16,7 @@
                 <?php the_content(); ?>
             </div>
 
-            <div class="icone">
+            <div class="icone mb-2">
                 <span>Destaque:</span>
                 <?php the_post_thumbnail('full') ?>
             </div>

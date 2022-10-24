@@ -12,7 +12,7 @@
 - [X] Página com lista de tags
 - [ ] Sobre
 - [ ] Contato
-- [ ] Parte da agenda
+- [X] Parte da agenda
    - Vincular ao calendário do email oficial
    - Listar visitas
-- [ ] Víncular mídias no rodapé
+- [X] Víncular mídias no rodapé
