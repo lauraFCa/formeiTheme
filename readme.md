@@ -10,7 +10,7 @@
 - [X] Página de um post (individual)
 - [X] Página com lista de categorias
 - [X] Página com lista de tags
-- [ ] Sobre
+- [X] Sobre
 - [ ] Contato
 - [X] Parte da agenda
    - Vincular ao calendário do email oficial
